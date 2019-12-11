@@ -24,15 +24,29 @@ module.exports = {
       { test: /\.pug$/, exclude: /node_modules/, include: path.resolve('src'), loader: 'pug-loader' },
       { test: /\.js$/, exclude: /node_modules/, include: path.resolve('src'), loader: 'babel-loader' },
       {
-        test: /\.(png|jpe?g|gif|svg)$/,
+        test: /\.(png|jpe?g|gif|webp|svg)$/,
         exclude: /node_modules/,
         include: path.resolve('src'),
         use: [{
           loader: 'url-loader',
           options: {
             name: devMode ? '[name]_[hash].[ext]' : '[name]_[contenthash].[ext]',
-            outputPath: path.join('assets', 'images'),
-            limit: 30000
+            outputPath: 'assets/images',
+            limit: 10000
+          }
+        }]
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)$/,
+        exclude: /node_modules/,
+        include: path.resolve('src'),
+        use: [{
+          loader: 'url-loader',
+          options: {
+            name: devMode ? '[name]_[hash].[ext]' : '[name]_[contenthash].[ext]',
+            publicPath: 'assets/fonts',
+            outputPath: 'assets/fonts',
+            limit: 5000
           }
         }]
       },
@@ -44,6 +58,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
+              publicPath: '../',
               hmr: devMode,
               reloadAll: true
             }

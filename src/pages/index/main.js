@@ -3,8 +3,9 @@ import '@/assets/scss/common.scss'
 import $ from 'jquery'
 import { a } from '@/utils/index'
 import '@/utils/a'
+import bg from '@/assets/images/dunjia.jpg'
 
-(function () {
+$(document).ready(function () {
   async function name () {
     await new Promise(resolve => {
       setTimeout(() => {
@@ -12,7 +13,7 @@ import '@/utils/a'
         resolve()
       }, 2000)
     })
-    console.log(2)
+    console.log(3)
   }
   name()
   console.log('foobar'.includes('4444'))
@@ -22,4 +23,5 @@ import '@/utils/a'
   document.body.append(p)
   $('body').css('background', 'pink')
   a()
-})(window)
+  $('body').append($(`<img src="${bg}">`))
+})

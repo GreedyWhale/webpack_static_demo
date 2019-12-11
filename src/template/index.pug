@@ -1,12 +1,15 @@
 doctype html
 html(lang="en")
-head
-  meta(charset="UTF-8")
-  meta(charset="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
-  meta(http-equiv="X-UA-Compatible" content="ie=edge")
-  link(rel="icon" href="/favicon.ico")
-  title #{htmlWebpackPlugin.options.title}
-body
-  block content
-footer
-  block footer
+  head
+    meta(charset="UTF-8")
+    meta(charset="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    link(rel="icon" href="./favicon.ico")
+    title #{htmlWebpackPlugin.options.title}
+    block links
+    block style
+    block scripts
+  body
+    block content
+  footer
+    block footer
